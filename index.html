@@ -30,7 +30,7 @@
   --bg:#0C0F0D; --surface:#141917; --ink:#EEF3EF; --muted:#9AA6A0; --line:#26302B;
   --green:#3CCB86; --green-soft:#13291F; --red:#F07A62; --amber:#E2A740; --phone:#2A322E; color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
 a{color:inherit}
 h1,h2,h3{font-family:var(--f-display);line-height:1.08;text-wrap:balance;margin:0;letter-spacing:-.02em}
@@ -106,11 +106,6 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:col
 .chips{display:flex;flex-wrap:wrap;gap:5px}
 .chip{font-size:.66rem;background:var(--screen);border-radius:10px;padding:2px 7px}
 .mnote{font-size:.66rem;color:var(--screen-muted);line-height:1.4}
-.boxes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.box{background:var(--screen-card);border:1px solid var(--screen-line);border-radius:12px;padding:9px 10px;display:grid;gap:2px;min-width:0}
-.box span{font-size:.7rem;font-weight:600}
-.box b{font:700 1.05rem var(--f-body);font-variant-numeric:tabular-nums}
-.box small{font-size:.6rem;color:var(--screen-muted)}
 .track{height:4px;background:var(--screen-line);border-radius:2px;overflow:hidden;margin-top:3px}
 .track i{display:block;height:100%;background:var(--screen-green);border-radius:2px}
 .track i.over{background:var(--screen-red)}
@@ -197,6 +192,27 @@ section.band{padding-block:72px;border-top:1px solid var(--line);scroll-margin-t
 .faq details ul{padding-left:18px}
 .faq details li+li{margin-top:4px}
 
+/* audiences */
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:860px){.who{grid-template-columns:1fr}}
+.who .panel{display:flex;flex-direction:column}
+.who .tag,.grid3 .tag,.grid2 .panel>.tag{margin-bottom:6px}
+.who .panel ul{margin-bottom:16px}
+.who .go{margin-top:auto;font-weight:700;color:var(--green);text-decoration:none}
+.who .go::after{content:" →"}
+.simple-line{margin-top:22px;padding:14px 18px;border-left:3px solid var(--green);background:var(--green-soft);border-radius:0 10px 10px 0;max-width:46em}
+.steps-list{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.steps-list li{counter-increment:s;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.steps-list li::before{content:counter(s);font:500 .9rem var(--f-mono);width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--green-soft);color:var(--green)}
+.steps-list b{display:block}
+.steps-list span{color:var(--muted)}
+.checks{list-style:none;padding:0!important;margin:12px 0 0}
+.checks li{padding-left:24px;position:relative}
+.checks li+li{margin-top:6px}
+.checks li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+/* phones: keep it short and simple */
+@media (max-width:640px){.ask.more,.desk-only{display:none!important}section.band{padding-block:52px}}
+
 /* pricing */
 .price{font:500 2.2rem var(--f-mono);letter-spacing:-.03em;margin:10px 0 2px}
 .price small{font:500 .9rem var(--f-body);color:var(--muted)}
@@ -248,6 +264,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
     <nav id="mainNav" aria-label="Main">
       <a href="#features" data-go="features">Features</a>
       <a href="#pricing" data-go="pricing">Pricing</a>
+      <a href="#advisors" data-go="advisors">For CPAs</a>
       <a href="#about" data-go="about">About</a>
       <a href="https://app.blackwiseai.com">Log in</a>
     </nav>
@@ -262,7 +279,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
     <div>
       <div class="eyebrow">All-in-one finance, personal + business</div>
       <h1>How can I make my first million?</h1>
-      <p class="lede">BlackWise shows your paycheck, your business, your taxes, and your investments in one place, and answers in plain words. See how many months your cash would last, for your household and your business, if no new money came in.</p>
+      <p class="lede">Simple money tools for students, young adults and small business owners. See what you can spend today, what to put away for taxes, and how long your cash will last, in plain words.</p>
       <div class="ctas">
         <a class="btn btn-green" href="#waitlist" data-scroll="waitlist">Start free</a>
         <a class="btn btn-line" href="#features" data-go="features">See what's inside</a>
@@ -273,17 +290,17 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
           <button class="ask" data-s="okay">Am I going to be okay?</button>
           <button class="ask" data-s="friends">Can I go hang out with my friends?</button>
           <button class="ask" data-s="car">Can I afford this car?</button>
-          <button class="ask" data-s="loan">When will my student loans be gone?</button>
-          <button class="ask" data-s="retire">How much should I save for retirement to lower my taxes?</button>
-          <button class="ask" data-s="cut">What do I need to cut to reach my investing goal?</button>
+          <button class="ask more" data-s="loan">When will my student loans be gone?</button>
+          <button class="ask more" data-s="retire">How much should I save for retirement to lower my taxes?</button>
+          <button class="ask more" data-s="cut">What do I need to cut to reach my investing goal?</button>
         </div>
         <div class="asks-group"><h3>Business</h3>
           <button class="ask" data-s="million">How can I make my first $1 million?</button>
           <button class="ask" data-s="runway">Is my business going to be okay? How long until I run out of cash?</button>
           <button class="ask" data-s="scorp">Should I elect S-corp?</button>
-          <button class="ask" data-s="hire">Can I hire my first employee?</button>
-          <button class="ask" data-s="compare">How does my business compare to others in my area?</button>
-          <button class="ask" data-s="price">How should I price my product or service?</button>
+          <button class="ask more" data-s="hire">Can I hire my first employee?</button>
+          <button class="ask more" data-s="compare">How does my business compare to others in my area?</button>
+          <button class="ask more" data-s="price">How should I price my product or service?</button>
         </div>
       </div>
     </div>
@@ -310,8 +327,6 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
             <div class="mhead" id="dHead"></div>
             <div class="chips" id="dChips"></div>
           </div>
-          <div class="boxes" id="dBoxes"></div>
-          <div class="mnote" id="dBudgetNote"></div>
           <div class="mcard" id="dCash"></div>
           <div class="mcard" id="dExtra"></div>
         </div>
@@ -387,19 +402,32 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
         <div class="panel"><div class="tag">Step 2</div><h3>BlackWise categorizes everything automatically and only asks about the few it isn't sure of.</h3></div>
         <div class="panel"><div class="tag">Step 3</div><h3>See your full picture and ask anything.</h3></div>
       </div>
+      <p class="simple-line"><b>Starts simple.</b> Your dashboard opens with just a few boxes: what you can spend today, what to set aside for taxes, and your cash. Add more tools when you need them, as your plan allows.</p>
     </div>
   </section>
 
-  <section class="band">
-    <div class="wrap grid2">
-      <div class="panel"><h3>"Can I go eat out with my friends?"</h3><p>Ask BlackWise. It checks your bills, your business cash, and your tax set-aside, then gives you a straight answer.</p></div>
-      <div class="panel"><h3>Earn on the side?</h3><p>BlackWise tells you how much to set aside for taxes each week, so April is not a surprise.</p></div>
-      <div class="panel"><h3>Work with an accountant?</h3><p>Business plans include a free accountant seat. They see the business side only, unless you choose to share more.</p></div>
-      <div class="panel"><h3>Already use QuickBooks? Keep it.</h3><p>BlackWise checks your books against your bank and flags anything that doesn't match.</p></div>
+  <section class="band" id="who">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Who it's for</div>
+        <h2>Pick your side. Start there.</h2>
+        <p>Personal and business stay separate, and each one starts simple.</p>
+      </div>
+      <div class="who">
+        <div class="panel"><div class="tag">Students and young adults</div><h3>Your first budget, done right</h3>
+          <ul class="checks"><li>See what you can spend today</li><li>FAFSA walkthrough and your aid offer explained</li><li>Student loan payoff and building credit</li><li>Starting a side hustle or an LLC, step by step</li></ul>
+          <a class="go" href="#waitlist" data-scroll="waitlist" data-type="Personal finances">Start free</a></div>
+        <div class="panel"><div class="tag">Small business owners</div><h3>Know where your business stands</h3>
+          <ul class="checks"><li>Profit last month and cash for the next 13 weeks</li><li>What to set aside for taxes, and by when</li><li>Keep QuickBooks, or just connect your bank</li><li>A free seat for your accountant</li></ul>
+          <a class="go" href="#waitlist" data-scroll="waitlist" data-type="My business">Join the business beta</a></div>
+        <div class="panel"><div class="tag">CPAs and advisors</div><h3>Your clients' books, ready to review</h3>
+          <ul class="checks"><li>A free seat when a client invites you</li><li>Review queue and month-end close in one place</li><li>Closing package and forecast workbook</li><li>See only the part each client shares</li></ul>
+          <a class="go" href="#advisors" data-go="advisors">See the advisor tools</a></div>
+      </div>
     </div>
   </section>
 
-  <section class="band">
+  <section class="band desk-only">
     <div class="wrap">
       <div class="sec-head">
         <div class="eyebrow">Built for every stage</div>
@@ -415,7 +443,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
     </div>
   </section>
 
-  <section class="band">
+  <section class="band desk-only">
     <div class="wrap grid2">
       <div class="panel">
         <div class="tag">Two workspaces</div>
@@ -541,7 +569,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
       <div class="panel"><div class="tag">Business</div><h3>For owners</h3>
         <ul><li>QuickBooks and bank connections</li><li>Cash flow, runway and break-even</li><li>S-corp election and reasonable salary estimates</li><li>Hiring, loan and price-change scenarios</li><li>Seats for partners, bookkeepers and team members</li></ul></div>
       <div class="panel"><div class="tag">Learn</div><h3>Money lessons that fit your stage</h3><p>Short lessons tied to the tool you're using, from credit basics to reading a P&amp;L.</p></div>
-      <div class="panel"><div class="tag">Professionals</div><h3>For accountants and firms</h3><p>Multi-client review queue, client-shared scenarios, and firm plans. Accountants invited by a client use BlackWise free.</p></div>
+      <div class="panel"><div class="tag">Professionals</div><h3>For accountants and firms</h3><p>Multi-client review queue, client-shared scenarios, and firm plans. Accountants invited by a client use BlackWise free. <a href="#advisors" data-go="advisors">See the advisor tools</a>.</p></div>
     </div>
   </div>
 </div>
@@ -574,6 +602,62 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
     <p class="note" style="margin-top:10px">A larger business or a bigger team? <a href="mailto:info@blackwiseai.com?subject=BlackWise%20for%20a%20larger%20business">Contact the BlackWise team</a> for a custom plan.<span data-mo-note hidden> Business plans are billed monthly.</span></p>
     <p class="note" style="margin-top:18px">AI features are included on every paid plan and can always be turned off. Accountants invited by a client pay nothing. Founding members keep their price for life.</p>
   </div>
+</div>
+
+<!-- ADVISORS (for CPAs, bookkeepers, fractional CFOs and advisors) -->
+<div class="view" data-view="advisors" hidden>
+  <section class="hero-band"><div class="wrap" style="padding-block:56px 48px">
+    <div class="eyebrow">For CPAs, bookkeepers and advisors</div>
+    <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;margin:14px 0 18px;max-width:16em">Your clients' numbers, ready when you are.</h1>
+    <p class="lede">When a client invites you, your seat is free. You see only the part they share, send questions back in the app, and close the month in one place.</p>
+    <div class="ctas">
+      <a class="btn btn-green" href="#waitlist" data-scroll="waitlist" data-type="I'm an accountant or advisor">Join as an advisor</a>
+      <a class="btn btn-line" href="mailto:info@blackwiseai.com?subject=BlackWise%20for%20my%20firm">Talk about firm plans</a>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="wrap grid2" style="align-items:start">
+    <div class="sec-head" style="margin:0">
+      <div class="eyebrow">How it works</div>
+      <h2>Three steps, no new logins to chase.</h2>
+      <p>Your client stays in control. You get a clean, separate view built for the work you do.</p>
+    </div>
+    <ol class="steps-list">
+      <li><div><b>Your client invites you</b><span>As their accountant, tax pro, fractional CFO or investment advisor. One person can hold more than one role.</span></div></li>
+      <li><div><b>You see your part only</b><span>A tax pro sees tax. An investment advisor sees investments. The client decides, and can change it any time.</span></div></li>
+      <li><div><b>You work the month and send it back</b><span>Review, reconcile, sign off, and hand over the closing package.</span></div></li>
+    </ol>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">What you get</div>
+      <h2>Advisor tools, built by an accounting firm.</h2>
+    </div>
+    <div class="grid3">
+      <div class="panel"><div class="tag">Every client</div><h3>Client list and review queue</h3><p>One home for all your clients, sorted by what needs you. Send questions, flags and adjustments, and see who it's waiting on.</p></div>
+      <div class="panel"><div class="tag">Month-end close</div><h3>A checklist that closes the month</h3><p>Tasks split by role and assignable to anyone on the team. Sign off when it's done, reopen if something changes.</p></div>
+      <div class="panel"><div class="tag">Reconcile</div><h3>Books matched to the bank</h3><p>Works with QuickBooks or with bank-only books. Differences and duplicates are flagged for you to clear.</p></div>
+      <div class="panel"><div class="tag">Schedules</div><h3>Prepaids, accruals, leases and depreciation</h3><p>BlackWise spots likely prepaids and missing accruals, and keeps the schedules running month to month.</p></div>
+      <div class="panel"><div class="tag">Deliverables</div><h3>Closing package and forecast workbook</h3><p>P&amp;L, balance sheet, KPIs and aging in one PDF package, plus the monthly forecast workbook in Excel, rolled forward each month.</p></div>
+      <div class="panel"><div class="tag">Tax and planning</div><h3>Tax requests, estimates and organizers</h3><p>Ask for documents, track estimated payments and run what-ifs. Investment tools are for education and planning.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="wrap grid2">
+    <div class="panel"><div class="tag">Your team</div><h3>Bring your staff, with the client's OK</h3><p>If the client allows it, invite the people who help you. They never get more access than you have.</p></div>
+    <div class="panel"><div class="tag">Trust</div><h3>Every view is logged</h3>
+      <ul class="checks"><li>The client picks what each advisor sees</li><li>Personal accounts stay private unless shared</li><li>The client can remove access at any time</li><li>An activity log shows who looked at what</li></ul></div>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <div class="sec-head" style="margin-bottom:20px">
+      <div class="eyebrow">Pricing for advisors</div>
+      <h2>Free when your client invites you.</h2>
+      <p>Bringing several clients at once? <a href="mailto:info@blackwiseai.com?subject=BlackWise%20for%20my%20firm">Email us about firm plans</a>.</p>
+    </div>
+    <a class="btn btn-green" href="#waitlist" data-scroll="waitlist" data-type="I'm an accountant or advisor">Join as an advisor</a>
+  </div></section>
 </div>
 
 <!-- ABOUT -->
@@ -621,7 +705,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
     <div class="foot">
       <div><a class="brand" href="#home" data-go="home"><svg class="mark" aria-hidden="true"><use href="#sankofa"/></svg>Black<span class="wise">Wise</span></a><div>Get Wise. Stay in the Black.</div><div><a href="mailto:info@blackwiseai.com">info@blackwiseai.com</a></div></div>
       <nav aria-label="Footer">
-        <a href="#features" data-go="features">Features</a><a href="#pricing" data-go="pricing">Pricing</a><a href="#about" data-go="about">About</a><a href="https://app.blackwiseai.com">Log in</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/disclosures">Disclosures</a>
+        <a href="#features" data-go="features">Features</a><a href="#pricing" data-go="pricing">Pricing</a><a href="#advisors" data-go="advisors">For CPAs</a><a href="#about" data-go="about">About</a><a href="https://app.blackwiseai.com">Log in</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/disclosures">Disclosures</a>
       </nav>
     </div>
     <p class="disclaimer">BlackWise gives you education and tools. It is not tax, legal, or investment advice. <a href="/disclosures">Disclosures</a> · © 2026 JMM Group.</p>
@@ -647,6 +731,7 @@ document.addEventListener("click",e=>{
   const a=e.target.closest("[data-go],[data-scroll]");if(!a)return;
   e.preventDefault();
   const go=a.dataset.go||"home";
+  if(a.dataset.type)$("wType").value=a.dataset.type;
   try{history.replaceState(null,"","#"+(a.dataset.scroll||go))}catch(_){}
   show(go,a.dataset.scroll);
 });
@@ -780,20 +865,14 @@ function render(){
 /* ---------- phone dashboard (sample numbers, laid out like the app's Dashboard tab) ---------- */
 const D={
   mine:{today:["You have $31 for lunch today",[["Restaurants","$19"],["Groceries","$12"]]],
-    boxes:[["Groceries",212,500],["Restaurants",96,250],["Gas",64,160],["Fun money",-18,120]],
-    note:"Tap a box to see what you spent there this month.",
     cash:`<div class="meye">Bank accounts</div><div class="mtitle">Cash on hand <i>›</i></div><div class="mval">$4,220</div>
-      <div class="mline"><span>Set aside for the family</span><b>+$600</b></div>
       <div class="mline"><span>Checking ••2231</span><b>$3,140</b></div><div class="mline"><span>Savings ••8810</span><b>$1,680</b></div>`,
-    extra:`<div class="meye">Goals</div><div class="mtitle">Emergency fund</div><div class="mline"><span>$3,000 of $9,000</span><b>$250/mo</b></div><div class="track"><i style="width:33%"></i></div>`},
+    extra:`<div class="meye">Taxes · Oct–Dec</div><div class="mtitle">Set aside for taxes</div><div class="mval">$640</div><div class="mnote">Put $640 away by January 15 for your side income.</div>`},
   ours:{today:["You have $46 for lunch today",[["Restaurants","$28"],["Groceries","$18"]]],
-    boxes:[["Groceries",388,800],["Restaurants",140,300],["Utilities",65,260],["Home",120,200]],
-    note:"Counted only from accounts you both chose to share. Tap a box to see its transactions. Your personal budget is separate.",
     cash:`<div class="meye">Family</div><div class="mtitle">Cash on hand</div><div class="mval">$6,450</div>
       <div class="mline"><span>Joint checking ••4417 · You</span><b>$3,250</b></div>
-      <div class="mline"><span>Bills ••0921 · Sam</span><b>$2,600</b></div>
-      <div class="mline"><span>Savings ••8810 · You</span><b>$600</b></div>`,
-    extra:`<div class="mtitle">Family goals</div><div class="mnote">Save toward something together and see which accounts and transactions make it up.</div>`}
+      <div class="mline"><span>Bills ••0921 · Sam</span><b>$2,600</b></div>`,
+    extra:`<div class="mtitle">Family goals</div><div class="mnote">Counted only from accounts you both chose to share. Your personal budget stays separate.</div>`}
 };
 let dmode="mine",range="1M";
 function pane(id){["dashPane","askPane","cashPane"].forEach(p=>$(p).hidden=p!==id);
@@ -804,9 +883,6 @@ function dash(m){
   $("mMine").setAttribute("aria-pressed",dmode==="mine");$("mOurs").setAttribute("aria-pressed",dmode==="ours");
   $("dHead").textContent=d.today[0];
   $("dChips").innerHTML=d.today[1].map(c=>`<span class="chip">${c[0]} ${c[1]}</span>`).join("");
-  $("dBoxes").innerHTML=d.boxes.map(([l,left,lim])=>{const used=Math.min(100,Math.round((lim-left)/lim*100));
-    return `<div class="box"><span>${l}</span><b${left<0?' style="color:var(--screen-red)"':""}>${left<0?"−"+usd(-left):usd(left)}</b><small>${left<0?"over":"left"} of ${usd(lim)}</small><div class="track"><i class="${left<0?"over":""}" style="width:${used}%"></i></div></div>`}).join("");
-  $("dBudgetNote").textContent=d.note;
   const c=$("dCash");c.innerHTML=d.cash;c.classList.toggle("tap",dmode==="mine");
   if(dmode==="mine"){c.setAttribute("role","button");c.tabIndex=0;c.setAttribute("aria-label","Cash on hand, open the Cash graph")}
   else{c.removeAttribute("role");c.removeAttribute("tabindex");c.removeAttribute("aria-label")}
