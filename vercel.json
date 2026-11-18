@@ -16,6 +16,31 @@
       "source": "/financial-advisors",
       "destination": "/#financial-advisors",
       "permanent": false
+    },
+    {
+      "source": "/planners",
+      "destination": "/#financial-advisors",
+      "permanent": false
+    },
+    {
+      "source": "/cfp",
+      "destination": "/#financial-advisors",
+      "permanent": false
+    },
+    {
+      "source": "/investment-advisors",
+      "destination": "/#investment-advisors",
+      "permanent": false
+    },
+    {
+      "source": "/ria",
+      "destination": "/#investment-advisors",
+      "permanent": false
+    },
+    {
+      "source": "/cfa",
+      "destination": "/#investment-advisors",
+      "permanent": false
     }
   ],
   "headers": [
