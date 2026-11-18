@@ -20,14 +20,14 @@
 
 <main class="wrap">
 <h1>Privacy Policy</h1>
-<p class="meta">Effective October 23, 2026 · Last updated October 29, 2026</p>
+<p class="meta">Effective October 23, 2026 · Last updated November 18, 2026</p>
 
 <p class="note"><strong>The short version.</strong> We collect what we need to run BlackWise and nothing more. You choose which accounts to connect, and you can disconnect them at any time. Our access to bank and QuickBooks data is read only. We do not sell your data and we do not use it for advertising. AI features are optional and can be turned off.</p>
 
 <ol class="toc">
   <li><a href="#who">Who we are</a></li>
   <li><a href="#collect">Information we collect</a></li>
-  <li><a href="#connected">Connected accounts: Plaid and QuickBooks</a></li>
+  <li><a href="#connected">Connected accounts: Plaid, QuickBooks and Gusto</a></li>
   <li><a href="#use">How we use information</a></li>
   <li><a href="#ai">AI features</a></li>
   <li><a href="#share">How we share information</a></li>
@@ -46,18 +46,23 @@
 <h3>Information you give us</h3>
 <ul>
   <li><strong>Account details:</strong> your name, email address and login credentials.</li>
-  <li><strong>Information you enter:</strong> budgets, goals, scenarios, business details, notes and any documents you upload.</li>
+  <li><strong>Information you enter:</strong> budgets, goals, scenarios, business details, invoices, team and payroll details, notes and any documents you upload.</li>
+  <li><strong>Photos and documents:</strong> receipts, tax forms and other documents you choose to upload or photograph with the camera. We only open your camera or photo library when you ask to.</li>
+  <li><strong>Voice:</strong> if you talk to the AI coach, your phone turns your speech into text (using Apple's or Google's speech recognition). We receive the text, not the recording.</li>
+  <li><strong>Mileage:</strong> while you run a trip in the mileage tracker, your phone uses your location to count the miles. Only the miles, dates and the purpose you enter are saved. Your route and location never leave your phone.</li>
+  <li><strong>Purchases:</strong> if you buy a paid plan, our payment provider (Stripe) handles your card. We receive the plan, price and payment status, never your full card number.</li>
   <li><strong>Messages:</strong> what you send us when you contact support or join the waitlist.</li>
 </ul>
 <h3>Information from accounts you connect</h3>
 <p>If you choose to connect a bank, card, loan, investment or accounting account, we receive financial information from that account. Section 3 explains exactly what we receive.</p>
 <h3>Information collected automatically</h3>
 <ul>
-  <li><strong>Device and error data:</strong> app version, device type, operating system and error logs. We use it to keep the Service working and to fix problems. We do not use analytics tools that track the screens or features you use.</li>
+  <li><strong>Device and error data:</strong> app version, device type, operating system and crash reports (sent to our error monitoring provider, Sentry, without your name, email or financial data). We use it to keep the Service working and to fix problems. We do not use analytics tools that track the screens or features you use.</li>
+  <li><strong>Notification token:</strong> if you allow notifications, a token from Apple or Google that lets us send them to your device.</li>
   <li><strong>Cookies and local storage:</strong> used to keep you signed in and to remember settings. We do not use advertising cookies.</li>
 </ul>
 
-<h2 id="connected">3. Connected accounts: Plaid and QuickBooks</h2>
+<h2 id="connected">3. Connected accounts: Plaid, QuickBooks and Gusto</h2>
 <h3>Bank, card, loan and investment accounts (Plaid)</h3>
 <p>We use Plaid Inc. ("Plaid") to connect your financial accounts. When you connect an account, you sign in through Plaid's secure screen. <strong>We never see or store your bank username or password.</strong> Depending on the features you use, Plaid may share the following with us:</p>
 <ul>
@@ -72,9 +77,12 @@
 <p>Business users can connect a QuickBooks Online company. You approve the connection on Intuit's own screen. <strong>We never see your Intuit password.</strong> Intuit gives us an access token that lets BlackWise read:</p>
 <ul>
   <li>Company information, such as the company name.</li>
+  <li>Your chart of accounts, customers, vendors, invoices, bills and transactions.</li>
   <li>Financial reports: Profit and Loss, Balance Sheet and Statement of Cash Flows.</li>
 </ul>
-<p><strong>BlackWise does not currently create, change or delete anything in your QuickBooks company.</strong> If we add features that write to QuickBooks, such as letting an invited accountant post entries, we will update this policy first and those features will only work with your permission.</p>
+<p><strong>BlackWise only changes your QuickBooks company when you, or someone you invited with edit access, take an action in the app</strong>, such as categorizing a bank transaction, posting a journal entry or creating an invoice, and only when the workspace owner has turned on QuickBooks changes for that workspace. Every change is kept in your activity history.</p>
+<h3>Payroll (Gusto)</h3>
+<p>If you connect Gusto, we read your company's payroll runs, employees' names, pay and taxes to fill in your payroll and tax numbers. You approve the connection on Gusto's screen, and you can disconnect it at any time.</p>
 <p>You can disconnect QuickBooks at any time in BlackWise, or from your QuickBooks account under Apps. When you disconnect, we revoke our access with Intuit and delete the stored tokens right away.</p>
 
 <h3>How we protect connection tokens</h3>
@@ -100,7 +108,7 @@
   <li><strong>People you invite.</strong> If you invite an accountant, advisor or team member to a business workspace, they can see that workspace's data. You can remove them at any time.</li>
   <li><strong>Advisors you give personal access.</strong> An advisor sees your personal finances only after you grant it. You choose all accounts or only some, full detail or balances only, and an end date if you want one. You can narrow or revoke it at any time, and it ends right away. What an advisor decides or comments on in your review queue is kept in your activity history.</li>
   <li><strong>Your family.</strong> If you join a family, you choose for each personal account whether family members see it in full (balance and transactions), see only its balance, or don't see it at all. New accounts start private. Family members see who spent each shared transaction and can change its category; those changes are kept in your activity history. Business accounts are never shared through a family, and an advisor you give access to never sees another family member's accounts through you. When you or another member leaves or is removed, access ends right away.</li>
-  <li><strong>Service providers.</strong> Companies that help us run the Service, under contracts that limit how they use your data. These include our hosting provider (Vercel), our database and sign-in provider (Supabase), Plaid, Intuit, our AI provider (only when AI is on) and our email provider.</li>
+  <li><strong>Service providers.</strong> Companies that help us run the Service, under contracts that limit how they use your data. These include our hosting provider (Vercel), our database and sign-in provider (Supabase), Plaid, Intuit, Gusto, our payment provider (Stripe), our error monitoring provider (Sentry), our app update and notification provider (Expo), our AI provider (only when AI is on) and our email provider (Resend).</li>
   <li><strong>Legal reasons.</strong> When required by law, subpoena or court order, or to protect the rights, safety or property of our users, the public or BlackWise.</li>
   <li><strong>Business transfers.</strong> If BlackWise is part of a merger, acquisition or sale of assets, your information may transfer, and this policy will continue to protect it.</li>
   <li><strong>With your consent.</strong> In any other case, only when you tell us to.</li>
@@ -122,6 +130,7 @@
 <ul>
   <li><strong>Disconnect</strong> any linked account at any time.</li>
   <li><strong>Turn AI off</strong> in Settings.</li>
+  <li><strong>Delete your account</strong> in the app under Settings, Delete account. It cancels your paid plan, disconnects every linked account and deletes your workspaces and files.</li>
   <li><strong>Access, correct, export or delete</strong> your information by emailing <a href="mailto:info@blackwiseai.com">info@blackwiseai.com</a>. We will respond within 30 days and may need to verify your identity first.</li>
   <li><strong>Email choices:</strong> unsubscribe from marketing email using the link in any message. We will still send required account notices.</li>
 </ul>
