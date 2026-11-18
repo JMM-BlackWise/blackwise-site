@@ -193,7 +193,8 @@ section.band{padding-block:72px;border-top:1px solid var(--line);scroll-margin-t
 .faq details li+li{margin-top:4px}
 
 /* audiences */
-.who{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.who{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media (max-width:1100px){.who{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:860px){.who{grid-template-columns:1fr}}
 .who .panel{display:flex;flex-direction:column}
 .who .tag,.grid3 .tag,.grid2 .panel>.tag{margin-bottom:6px}
@@ -265,6 +266,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
       <a href="#features" data-go="features">Features</a>
       <a href="#pricing" data-go="pricing">Pricing</a>
       <a href="#advisors" data-go="advisors">For CPAs</a>
+      <a href="#financial-advisors" data-go="financial-advisors">For financial advisors</a>
       <a href="#about" data-go="about">About</a>
       <a href="https://app.blackwiseai.com">Log in</a>
     </nav>
@@ -420,9 +422,12 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
         <div class="panel"><div class="tag">Small business owners</div><h3>Know where your business stands</h3>
           <ul class="checks"><li>Profit last month and cash for the next 13 weeks</li><li>What to set aside for taxes, and by when</li><li>Keep QuickBooks, or just connect your bank</li><li>A free seat for your accountant</li></ul>
           <a class="go" href="#waitlist" data-scroll="waitlist" data-type="My business">Join the business beta</a></div>
-        <div class="panel"><div class="tag">CPAs and advisors</div><h3>Your clients' books, ready to review</h3>
+        <div class="panel"><div class="tag">CPAs and bookkeepers</div><h3>Your clients' books, ready to review</h3>
           <ul class="checks"><li>A free seat when a client invites you</li><li>Review queue and month-end close in one place</li><li>Closing package and forecast workbook</li><li>See only the part each client shares</li></ul>
-          <a class="go" href="#advisors" data-go="advisors">See the advisor tools</a></div>
+          <a class="go" href="#advisors" data-go="advisors">See the CPA tools</a></div>
+        <div class="panel"><div class="tag">Financial advisors</div><h3>The whole picture, not just the portfolio</h3>
+          <ul class="checks"><li>A free seat when a client invites you</li><li>Accounts, target mix and drift in one view</li><li>Tax-aware view and required distributions</li><li>One-page client review and meeting notes</li></ul>
+          <a class="go" href="#financial-advisors" data-go="financial-advisors">See the advisor tools</a></div>
       </div>
     </div>
   </section>
@@ -547,7 +552,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
       <form id="waitForm" class="panel">
         <div class="field"><label for="wEmail">Email</label><input type="email" id="wEmail" required placeholder="you@example.com" autocomplete="email"></div>
         <div class="field"><label for="wType">I'm joining for</label>
-          <select id="wType"><option>Personal finances</option><option>My business</option><option>Both</option><option>I'm an accountant or advisor</option></select></div>
+          <select id="wType"><option>Personal finances</option><option>My business</option><option>Both</option><option>I'm an accountant or advisor</option><option>I'm a financial advisor</option></select></div>
         <button class="btn btn-green" type="submit">Join the beta</button>
         <p class="msg" id="wMsg" role="status"></p>
       </form>
@@ -569,7 +574,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
       <div class="panel"><div class="tag">Business</div><h3>For owners</h3>
         <ul><li>QuickBooks and bank connections</li><li>Cash flow, runway and break-even</li><li>S-corp election and reasonable salary estimates</li><li>Hiring, loan and price-change scenarios</li><li>Seats for partners, bookkeepers and team members</li></ul></div>
       <div class="panel"><div class="tag">Learn</div><h3>Money lessons that fit your stage</h3><p>Short lessons tied to the tool you're using, from credit basics to reading a P&amp;L.</p></div>
-      <div class="panel"><div class="tag">Professionals</div><h3>For accountants and firms</h3><p>Multi-client review queue, client-shared scenarios, and firm plans. Accountants invited by a client use BlackWise free. <a href="#advisors" data-go="advisors">See the advisor tools</a>.</p></div>
+      <div class="panel"><div class="tag">Professionals</div><h3>For accountants and firms</h3><p>Multi-client review queue, client-shared scenarios, and firm plans. Accountants and financial advisors invited by a client use BlackWise free. <a href="#advisors" data-go="advisors">For CPAs</a> · <a href="#financial-advisors" data-go="financial-advisors">For financial advisors</a>.</p></div>
     </div>
   </div>
 </div>
@@ -660,6 +665,63 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
   </div></section>
 </div>
 
+<!-- FINANCIAL ADVISORS (wealth managers, planners, investment advisors) -->
+<div class="view" data-view="financial-advisors" hidden>
+  <section class="hero-band"><div class="wrap" style="padding-block:56px 48px">
+    <div class="eyebrow">For financial advisors and planners</div>
+    <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;margin:14px 0 18px;max-width:16em">See your client's whole money picture.</h1>
+    <p class="lede">Your clients already track their budget, debt, taxes and business in BlackWise. When they invite you, your seat is free, and you see the investment side they choose to share, next to the numbers that drive it.</p>
+    <div class="ctas">
+      <a class="btn btn-green" href="#waitlist" data-scroll="waitlist" data-type="I'm a financial advisor">Join as a financial advisor</a>
+      <a class="btn btn-line" href="mailto:info@blackwiseai.com?subject=BlackWise%20for%20my%20advisory%20practice">Talk about practice plans</a>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="wrap grid2" style="align-items:start">
+    <div class="sec-head" style="margin:0">
+      <div class="eyebrow">How it works</div>
+      <h2>Your client invites you. You see what they share.</h2>
+      <p>No data requests by email and no spreadsheets to rebuild. The client stays in control the whole time.</p>
+    </div>
+    <ol class="steps-list">
+      <li><div><b>Your client invites you</b><span>As their investment advisor. You can also hold another role, like tax pro, if you do both.</span></div></li>
+      <li><div><b>They pick what you see</b><span>Investments are on by default. Debt and taxes each have their own switch, and the client can change any of them at any time.</span></div></li>
+      <li><div><b>You prepare and meet</b><span>Review the accounts, compare them to the plan, and walk in with a one-page review and an agenda.</span></div></li>
+    </ol>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">What you get</div>
+      <h2>Planning tools for the work you already do.</h2>
+    </div>
+    <div class="grid3">
+      <div class="panel"><div class="tag">Every client</div><h3>One client list</h3><p>All the households and business owners who invited you, in one place, with what needs your attention first.</p></div>
+      <div class="panel"><div class="tag">Portfolio checkup</div><h3>Target mix, drift and fees</h3><p>Compare each client's accounts to their target mix. See drift past your rebalance band, fund fees, overlap and concentration at a glance.</p></div>
+      <div class="panel"><div class="tag">Risk and policy</div><h3>Risk profile and policy statement</h3><p>Record the client's risk score, target mix and rebalance rules, then check the accounts against that investment policy statement.</p></div>
+      <div class="panel"><div class="tag">Tax-aware</div><h3>Where things sit by tax treatment</h3><p>Taxable, tax-deferred and tax-free accounts side by side, unrealized gains and losses, room left in the bracket, and required minimum distributions.</p></div>
+      <div class="panel"><div class="tag">Context</div><h3>The numbers behind the plan</h3><p>With the client's OK, see their cash, debt payoff dates and tax set-aside. Business owners can share their forecast and financial package too.</p></div>
+      <div class="panel"><div class="tag">Meetings</div><h3>Client review and meeting notes</h3><p>Download a one-page client review as a PDF, set the next review date, and keep agendas and notes with the client's file.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="wrap grid2">
+    <div class="panel"><div class="tag">Your team</div><h3>Bring your staff, with the client's OK</h3><p>If the client allows it, invite the planners and assistants who help you. They never get more access than you have.</p></div>
+    <div class="panel"><div class="tag">Trust</div><h3>The client stays in charge</h3>
+      <ul class="checks"><li>The client picks what each advisor sees</li><li>Bank and investment links are read-only</li><li>The client can remove access at any time</li><li>An activity log shows who looked at what</li></ul></div>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <div class="sec-head" style="margin-bottom:20px">
+      <div class="eyebrow">Pricing for financial advisors</div>
+      <h2>Free when your client invites you.</h2>
+      <p>Want to bring your whole book of clients? <a href="mailto:info@blackwiseai.com?subject=BlackWise%20for%20my%20advisory%20practice">Email us about practice plans</a>.</p>
+    </div>
+    <a class="btn btn-green" href="#waitlist" data-scroll="waitlist" data-type="I'm a financial advisor">Join as a financial advisor</a>
+    <p class="note" style="margin-top:18px">BlackWise gives you tools and education. It does not recommend securities or trades, and it is not a registered investment adviser. Any advice to your client comes from you.</p>
+  </div></section>
+</div>
+
 <!-- ABOUT -->
 <div class="view" data-view="about" hidden>
   <div class="wrap prose">
@@ -705,7 +767,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
     <div class="foot">
       <div><a class="brand" href="#home" data-go="home"><svg class="mark" aria-hidden="true"><use href="#sankofa"/></svg>Black<span class="wise">Wise</span></a><div>Get Wise. Stay in the Black.</div><div><a href="mailto:info@blackwiseai.com">info@blackwiseai.com</a></div></div>
       <nav aria-label="Footer">
-        <a href="#features" data-go="features">Features</a><a href="#pricing" data-go="pricing">Pricing</a><a href="#advisors" data-go="advisors">For CPAs</a><a href="#about" data-go="about">About</a><a href="https://app.blackwiseai.com">Log in</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/disclosures">Disclosures</a>
+        <a href="#features" data-go="features">Features</a><a href="#pricing" data-go="pricing">Pricing</a><a href="#advisors" data-go="advisors">For CPAs</a><a href="#financial-advisors" data-go="financial-advisors">For financial advisors</a><a href="#about" data-go="about">About</a><a href="https://app.blackwiseai.com">Log in</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/disclosures">Disclosures</a>
       </nav>
     </div>
     <p class="disclaimer">BlackWise gives you education and tools. It is not tax, legal, or investment advice. <a href="/disclosures">Disclosures</a> · © 2026 JMM Group.</p>

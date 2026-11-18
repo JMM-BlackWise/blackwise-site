@@ -11,6 +11,11 @@
       "source": "/cpa",
       "destination": "/#advisors",
       "permanent": false
+    },
+    {
+      "source": "/financial-advisors",
+      "destination": "/#financial-advisors",
+      "permanent": false
     }
   ],
   "headers": [
