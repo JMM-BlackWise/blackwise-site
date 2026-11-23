@@ -200,7 +200,7 @@ section.band{padding-block:72px;border-top:1px solid var(--line);scroll-margin-t
 .who .tag,.grid3 .tag,.grid2 .panel>.tag{margin-bottom:6px}
 .who .panel ul{margin-bottom:16px}
 .who .go{margin-top:auto;font-weight:700;color:var(--green);text-decoration:none}
-.who .go::after{content:" →"}
+.who .go::after{content:"\00a0→"}  /* no-break space: the arrow stays on the line with the last word */
 .who .go.try{margin-top:6px;font-weight:600}  /* demo links (app /demo/...): view-only, made-up numbers */
 .simple-line{margin-top:22px;padding:14px 18px;border-left:3px solid var(--green);background:var(--green-soft);border-radius:0 10px 10px 0;max-width:46em}
 .steps-list{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
