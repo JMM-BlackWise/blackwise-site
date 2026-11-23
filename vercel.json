@@ -48,7 +48,7 @@
       "permanent": false
     },
     {
-      "source": "/demo/:audience(personal|student|business|cpa|advisor)",
+      "source": "/demo/:audience(personal|student|starting|business|cpa|advisor)",
       "destination": "https://app.blackwiseai.com/demo/:audience",
       "permanent": false
     }
