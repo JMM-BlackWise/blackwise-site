@@ -41,6 +41,16 @@
       "source": "/cfa",
       "destination": "/#investment-advisors",
       "permanent": false
+    },
+    {
+      "source": "/demo",
+      "destination": "/#who",
+      "permanent": false
+    },
+    {
+      "source": "/demo/:audience(personal|student|business|cpa|advisor)",
+      "destination": "https://app.blackwiseai.com/demo/:audience",
+      "permanent": false
     }
   ],
   "headers": [

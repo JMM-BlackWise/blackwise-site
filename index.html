@@ -201,6 +201,7 @@ section.band{padding-block:72px;border-top:1px solid var(--line);scroll-margin-t
 .who .panel ul{margin-bottom:16px}
 .who .go{margin-top:auto;font-weight:700;color:var(--green);text-decoration:none}
 .who .go::after{content:" →"}
+.who .go.try{margin-top:6px;font-weight:600}  /* demo links (app /demo/...): view-only, made-up numbers */
 .simple-line{margin-top:22px;padding:14px 18px;border-left:3px solid var(--green);background:var(--green-soft);border-radius:0 10px 10px 0;max-width:46em}
 .steps-list{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
 .steps-list li{counter-increment:s;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
@@ -286,6 +287,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
       <div class="ctas">
         <a class="btn btn-green" href="#waitlist" data-scroll="waitlist">Start free</a>
         <a class="btn btn-line" href="#features" data-go="features">See what's inside</a>
+        <a class="btn btn-line" href="#who" data-scroll="who">Try a demo</a>
       </div>
       <div class="asks-label">Ask BlackWise · pick a question, the phone answers live</div>
       <div class="asks" id="asks">
@@ -419,17 +421,22 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
       <div class="who">
         <div class="panel"><div class="tag">Students and young adults</div><h3>Your first budget, done right</h3>
           <ul class="checks"><li>See what you can spend today</li><li>FAFSA walkthrough and your aid offer explained</li><li>Student loan payoff and building credit</li><li>Starting a side hustle or an LLC, step by step</li></ul>
-          <a class="go" href="#waitlist" data-scroll="waitlist" data-type="Personal finances">Start free</a></div>
+          <a class="go" href="#waitlist" data-scroll="waitlist" data-type="Personal finances">Start free</a>
+          <a class="go try" href="https://app.blackwiseai.com/demo/student">Try the college demo</a>
+          <a class="go try" href="https://app.blackwiseai.com/demo/personal">Try the new grad demo</a></div>
         <div class="panel"><div class="tag">Small business owners</div><h3>Know where your business stands</h3>
           <ul class="checks"><li>Profit last month and cash for the next 13 weeks</li><li>What to set aside for taxes, and by when</li><li>Keep QuickBooks, or just connect your bank</li><li>A free seat for your accountant</li></ul>
-          <a class="go" href="#waitlist" data-scroll="waitlist" data-type="My business">Join the business beta</a></div>
+          <a class="go" href="#waitlist" data-scroll="waitlist" data-type="My business">Join the business beta</a>
+          <a class="go try" href="https://app.blackwiseai.com/demo/business">Try the business demo</a></div>
         <div class="panel"><div class="tag">CPAs and bookkeepers</div><h3>Your clients' books, ready to review</h3>
           <ul class="checks"><li>A free seat when a client invites you</li><li>Review queue and month-end close in one place</li><li>Closing package and forecast workbook</li><li>See only the part each client shares</li></ul>
-          <a class="go" href="#advisors" data-go="advisors">See the CPA tools</a></div>
+          <a class="go" href="#advisors" data-go="advisors">See the CPA tools</a>
+          <a class="go try" href="https://app.blackwiseai.com/demo/cpa">Try the CPA demo</a></div>
         <div class="panel"><div class="tag">Financial advisors</div><h3>The whole picture, not just the portfolio</h3>
           <ul class="checks"><li>A free seat when a client invites you</li><li>Budget, debt, goals and taxes next to the accounts</li><li>Target mix, drift and a tax-aware view</li><li>One-page client review and meeting notes</li></ul>
           <a class="go" href="#financial-advisors" data-go="financial-advisors">For planners</a>
-          <a class="go" href="#investment-advisors" data-go="investment-advisors" style="margin-top:6px">For investment advisors</a></div>
+          <a class="go" href="#investment-advisors" data-go="investment-advisors" style="margin-top:6px">For investment advisors</a>
+          <a class="go try" href="https://app.blackwiseai.com/demo/advisor">Try the advisor demo</a></div>
       </div>
     </div>
   </section>
@@ -619,6 +626,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
     <p class="lede">When a client invites you, your seat is free. You see only the part they share, send questions back in the app, and close the month in one place.</p>
     <div class="ctas">
       <a class="btn btn-green" href="#waitlist" data-scroll="waitlist" data-type="I'm an accountant or advisor">Join as an advisor</a>
+      <a class="btn btn-line" href="https://app.blackwiseai.com/demo/cpa">Try the CPA demo</a>
       <a class="btn btn-line" href="mailto:info@blackwiseai.com?subject=BlackWise%20for%20my%20firm">Talk about firm plans</a>
     </div>
   </div></section>
@@ -704,6 +712,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
     <p class="lede">Your clients already track their spending, debt, goals and taxes in BlackWise. When they invite you, your seat is free and the numbers they share are already up to date.</p>
     <div class="ctas">
       <a class="btn btn-green" href="#waitlist" data-scroll="waitlist" data-type="I'm a financial planner">Join as a planner</a>
+      <a class="btn btn-line" href="https://app.blackwiseai.com/demo/advisor">Try the advisor demo</a>
       <a class="btn btn-line" href="mailto:info@blackwiseai.com?subject=BlackWise%20for%20my%20planning%20practice">Talk about practice plans</a>
     </div>
   </div></section>
@@ -761,6 +770,7 @@ footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);fo
     <p class="lede">When a client invites you, your seat is free. See their investment accounts in one place, compare them to the target mix you set together, and know where things sit for taxes.</p>
     <div class="ctas">
       <a class="btn btn-green" href="#waitlist" data-scroll="waitlist" data-type="I'm an investment advisor">Join as an investment advisor</a>
+      <a class="btn btn-line" href="https://app.blackwiseai.com/demo/advisor">Try the advisor demo</a>
       <a class="btn btn-line" href="mailto:info@blackwiseai.com?subject=BlackWise%20for%20my%20advisory%20firm">Talk about firm plans</a>
     </div>
   </div></section>
